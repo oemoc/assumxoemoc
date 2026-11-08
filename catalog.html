@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог накопителей — AssumXOemoc</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка сайта AssumXOemoc -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">AssumXOemoc</a>
+            <nav class="nav">
+                <a href="catalog.html" class="nav-link active-link">Каталог</a>
+                <a href="index.html#guarantee" class="nav-link">Гарантия</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+            </nav>
+            <div class="cart-status" id="cartBtn">
+                🛒 Корзина (<span id="cartCount">0</span>)
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция Полноценного Каталога -->
+    <section class="catalog-page-section">
+        <div class="container">
+            <h2 class="section-title">Полный каталог товаров</h2>
+            
+            <!-- Панель расширенных фильтров -->
+            <div class="filter-panel">
+                <div class="filter-group">
+                    <label>Состояние:</label>
+                    <div class="filters-status-buttons">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="new">Новые</button>
+                        <button class="filter-btn" data-filter="used">Б/У</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterSize">Объем памяти:</label>
+                    <select id="filterSize" class="filter-select">
+                        <option value="all">Все объемы</option>
+                        <option value="500gb">500 GB</option>
+                        <option value="1tb">1 TB</option>
+                        <option value="4tb">4 TB</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filterRpm">Скорость / Тип:</label>
+                    <select id="filterRpm" class="filter-select">
+                        <option value="all">Любая скорость</option>
+                        <option value="5400">5400 RPM</option>
+                        <option value="7200">7200 RPM</option>
+                        <option value="ssd">SSD (Электронный)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Сетка товаров -->
+            <div class="products-grid">
+                
+                <!-- Карточка 1 -->
+                <div class="product-card" data-category="used" data-size="1tb" data-rpm="7200">
+                    <div class="badge used">Б/У</div>
+                    <div class="product-img"><div class="hdd-placeholder">💾</div></div>
+                    <div class="product-info">
+                        <span class="product-category">3.5" для ПК | 7200 RPM</span>
+                        <h3 class="product-title">1TB WD Blue (WD10EZEX)</h3>
+                        <div class="product-status">Здоровье: 100% (S.M.A.R.T. чистый)</div>
+                        <div class="product-footer">
+                            <span class="price">2400 ₽</span>
+                            <button class="btn-buy" data-name="1TB WD Blue (WD10EZEX)" data-price="2400">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="product-card" data-category="new" data-size="4tb" data-rpm="5400">
+                    <div class="badge new">Новый</div>
+                    <div class="product-img"><div class="hdd-placeholder">💾</div></div>
+                    <div class="product-info">
+                        <span class="product-category">3.5" для серверов | 5400 RPM</span>
+                        <h3 class="product-title">4TB Seagate IronWolf</h3>
+                        <div class="product-status">В заводской упаковке</div>
+                        <div class="product-footer">
+                            <span class="price">9800 ₽</span>
+                            <button class="btn-buy" data-name="4TB Seagate IronWolf" data-price="9800">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="product-card" data-category="used" data-size="500gb" data-rpm="5400">
+                    <div class="badge used">Б/У</div>
+                    <div class="product-img"><div class="hdd-placeholder">💾</div></div>
+                    <div class="product-info">
+                        <span class="product-category">2.5" для ноутбука | 5400 RPM</span>
+                        <h3 class="product-title">500GB HGST Travelstar</h3>
+                        <div class="product-status">Время наработки: 140 часов</div>
+                        <div class="product-footer">
+                            <span class="price">1200 ₽</span>
+                            <button class="btn-buy" data-name="500GB HGST Travelstar" data-price="1200">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="product-card" data-category="new" data-size="1tb" data-rpm="ssd">
+                    <div class="badge new">Новый</div>
+                    <div class="product-img"><div class="hdd-placeholder">💾</div></div>
+                    <div class="product-info">
+                        <span class="product-category">Высокоскоростной SSD</span>
+                        <h3 class="product-title">1TB Samsung 980 Pro M.2</h3>
+                        <div class="product-status">Гарантия от магазина 1 год</div>
+                        <div class="product-footer">
+                            <span class="price">11500 ₽</span>
+                            <button class="btn-buy" data-name="1TB Samsung 980 Pro M.2" data-price="11500">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ОКНА КОРЗИНЫ И ЗАКАЗА -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div id="cartItemsList"></div>
+            <div class="cart-total">Итого: <span id="cartTotalSum">0</span> ₽</div>
+            <button class="btn order-btn" id="checkoutBtn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="orderFormModal">
+        <div class="cart-modal-content">
+            <span class="close-modal" id="closeOrderModal">&times;</span>
+            <h2>Оформление заказа</h2>
+            
+            <form id="purchaseForm" class="purchase-form">
+                <div class="form-group">
+                    <label for="clientName">Ваше имя *</label>
+                    <input type="text" id="clientName" required placeholder="Иван">
+                </div>
+                
+                <div class="form-group">
+                    <label for="clientPhone">Номер телефона *</label>
+                    <input type="tel" id="clientPhone" required placeholder="+7 (930) 408-61-21">
+                </div>
+                
+                <div class="form-group">
+                    <label>Где вам удобнее ответить? *</label>
+                    <div class="messenger-selector">
+                        <label class="messenger-option">
+                            <input type="radio" name="contactMethod" value="Telegram" checked>
+                            <span>Telegram</span>
+                        </label>
+                        <label class="messenger-option">
+                            <input type="radio" name="contactMethod" value="WhatsApp">
+                            <span>WhatsApp</span>
+                        </label>
+                        <label class="messenger-option">
+                            <input type="radio" name="contactMethod" value="Звонок">
+                            <span>Обычный звонок</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deliveryType">Способ получения</label>
+                    <select id="deliveryType" class="filter-select" style="width: 100%; min-width: auto; background-color: #1e293b; border-color: #334155;">
+                        <option value="pickup">Самовывоз (г. Воронеж, ул. 45 стрелковой дивизии, д. 275)</option>
+                        <option value="cdek">Доставка СДЭК / Boxberry / Почта</option>
+                        <option value="avito">Через безопасную сделку Авито</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="clientComment">Комментарий (необязательно)</label>
+                    <textarea id="clientComment" rows="3" placeholder="Удобное время для связи..."></textarea>
+                </div>
+
+                <div class="order-summary-badge">
+                    К оплате: <span id="formTotalSum">0</span> ₽
+                </div>
+
+                <button type="submit" class="btn order-btn" style="background-color: #10b981; color: #fff; width: 100%; cursor: pointer;">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer id="contacts" class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 AssumXOemoc. Все права защищены.</p>
+            <div class="contacts-info">
+                <span>📍 г. Воронеж, ул. 45 стрелковой дивизии, д. 275</span> | 
+                <span>📞 +7 (930) 408-61-21</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

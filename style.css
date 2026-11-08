@@ -1,0 +1,696 @@
+/* Обнуление базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --badge-new: #10b981;
+    --badge-used: #f59e0b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Шапка */
+.header {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid #334155;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--text-main);
+}
+
+.cart-status {
+    background: #334155;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Главный баннер */
+.hero {
+    padding: 160px 0 100px 0;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* Секция каталога */
+.catalog {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: #334155;
+    border: none;
+    color: var(--text-main);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--accent);
+    color: #000;
+}
+
+/* Сетка товаров */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #334155;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: #475569;
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge.new { background-color: var(--badge-new); color: #fff; }
+.badge.used { background-color: var(--badge-used); color: #000; }
+
+.product-img {
+    height: 180px;
+    background-color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #334155;
+}
+
+.hdd-placeholder {
+    font-size: 64px;
+    opacity: 0.7;
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-category {
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    min-height: 54px; /* Чтобы выровнять высоту заголовков */
+}
+
+.product-status {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.product-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn-buy {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Особенности */
+.features {
+    background-color: #0b0f19;
+    padding: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.feature-item h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    color: var(--text-muted);
+}
+
+/* Подвал */
+.footer {
+    padding: 40px 0;
+    border-top: 1px solid #334155;
+    background-color: var(--bg-dark);
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .nav { display: none; } /* Для простоты на смартфонах прячем меню */
+    .hero-content h1 { font-size: 32px; }
+    .footer-container { flex-direction: column; text-align: center; }
+}
+
+/* Стили для модального окна корзины */
+.cart-modal {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Окно открывается при добавлении этого класса через JS */
+.cart-modal.open {
+    display: flex;
+}
+
+.cart-modal-content {
+    background-color: var(--bg-card);
+    border: 1px solid #334155;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--text-main);
+}
+
+.cart-modal h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+/* Элементы внутри корзины */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #334155;
+}
+
+.cart-item-title {
+    font-weight: 500;
+    font-size: 15px;
+    max-width: 60%;
+}
+
+.cart-item-remove {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.cart-total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.order-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Стили для центрирования кнопки под каталогом */
+.catalog-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+.active-link {
+    color: var(--text-main) !important;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+}
+
+/* Панель расширенных фильтров */
+.filter-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.filters-status-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-select {
+    background-color: #334155;
+    color: var(--text-main);
+    border: 1px solid #475569;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    min-width: 160px;
+    transition: border-color 0.3s;
+}
+
+.filter-select:focus {
+    border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .filter-panel {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+}
+
+/* Фикс для отдельной страницы каталога AssumXOemoc */
+.catalog-page-section {
+    padding: 140px 0 80px 0;
+    min-height: 80vh;
+}
+
+.catalog-page-section .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+/* Блок репутации Авито для AssumXOemoc */
+.avito-reviews-section {
+    padding: 60px 0;
+    background: linear-gradient(180deg, var(--bg-dark) 0%, #131c31 100%);
+}
+
+.avito-widget {
+    background-color: var(--bg-card);
+    border: 1px solid #334155;
+    border-left: 5px solid #4bc124; /* Фирменный зеленый цвет Авито */
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.avito-badge-logo {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(45deg, #4bc124, #9154f6); /* Градиент Авито */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-right: 1px solid #334155;
+    padding-right: 40px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.avito-info {
+    flex-grow: 1;
+}
+
+.avito-info h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.avito-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rating-stars {
+    color: #ffc107; /* Золотые звезды */
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.rating-value {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-main);
+}
+
+.reviews-count {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.avito-text {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    max-width: 700px;
+}
+
+.avito-btn {
+    background: #4bc124;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+}
+
+.avito-btn:hover {
+    background: #3fa21e;
+    color: #fff;
+}
+
+/* Адаптивность для смартфонов */
+@media (max-width: 768px) {
+    .avito-widget {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 25px;
+    }
+    .avito-badge-logo {
+        border-right: none;
+        border-bottom: 1px solid #334155;
+        padding-right: 0;
+        padding-bottom: 15px;
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* Стили формы заказа AssumXOemoc */
+.purchase-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.purchase-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.purchase-form label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.purchase-form input[type="text"],
+.purchase-form input[type="tel"],
+.purchase-form textarea {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.purchase-form input:focus,
+.purchase-form textarea:focus {
+    border-color: var(--accent);
+}
+
+.order-summary-badge {
+    background-color: #1e293b;
+    border: 1px dashed #475569;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.order-summary-badge span {
+    color: var(--accent);
+}
+
+/* Выбор мессенджера в форме AssumXOemoc */
+.messenger-selector {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.messenger-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: border-color 0.3s, background-color 0.3s;
+    user-select: none;
+}
+
+.messenger-option:hover {
+    border-color: #475569;
+}
+
+/* Подсветка рамки, если радиокнопка активна */
+.messenger-option input[type="radio"]:checked + span {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.messenger-option:has(input[type="radio"]:checked) {
+    border-color: var(--accent);
+    background-color: rgba(56, 189, 248, 0.05);
+}
+
+@media (max-width: 480px) {
+    .messenger-selector {
+        flex-direction: column;
+    }
+    .messenger-option {
+        width: 100%;
+    }
+}
+
